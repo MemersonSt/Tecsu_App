@@ -27,9 +27,15 @@ class MyApp extends StatelessWidget {
       initialRoute: initialRoute,
       routes: {
         '/': (BuildContext context) => const LoginScreen(),
-        '/home': (BuildContext context) => Principal(
-              usuario: ModalRoute.of(context)!.settings.arguments as Usuario,
-            ),
+        '/home': (BuildContext context) {
+          final usuario =
+              ModalRoute.of(context)!.settings.arguments as Usuario?;
+          if (usuario != null) {
+            return Principal(usuario: usuario);
+          } else {
+            return const Text('No se pudo obtener el usuario');
+          }
+        },
         '/detalleCompra': (BuildContext context) => DetalleFacturaScreen(
             listaCompra:
                 ModalRoute.of(context)!.settings.arguments as ListaCompra),
