@@ -21,6 +21,7 @@ class DetalleEstudiante extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const colorPrincipal = Color(0xff1D2B53);
+    String selectedDateRange = 'Todos';
 
     return Scaffold(
       backgroundColor: colorPrincipal,
@@ -81,7 +82,6 @@ class DetalleEstudiante extends StatelessWidget {
             ),
 
             //Compras del estudiante
-
             Expanded(
                 child: Container(
               decoration: const BoxDecoration(
@@ -112,7 +112,7 @@ class DetalleEstudiante extends StatelessWidget {
 
   FutureBuilder<List<ListaCompra>> listaOrdenCompra() {
     return FutureBuilder<List<ListaCompra>>(
-      future: obtenerComprasEstudiante(estudiante.uid),
+      future: obtenerComprasEstudiante(estudiante.cedulaIdentificacion),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());

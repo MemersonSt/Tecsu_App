@@ -79,7 +79,14 @@ class _HomeState extends State<Home> {
               ),
             ),
             panelBienvenida(),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
+            const Text(
+              'Estudiantes',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             Expanded(
                 child: listaEstudiantes(
                     cedula)), // llama a la funcion lista de estudiantes

@@ -21,7 +21,7 @@ class Estudiante {
   factory Estudiante.fromJson(Map<String, dynamic> json) {
     return Estudiante(
         id: json['id'] ?? 0,
-        cedulaIdentificacion: json['cedula'] ?? '',
+        cedulaIdentificacion: json['cedula_estudiante'] ?? '',
         uid: json['uid'] ?? '',
         nombre: json['name'] ?? '',
         apellidos: json['last_name'] ?? '',
